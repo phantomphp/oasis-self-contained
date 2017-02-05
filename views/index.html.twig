@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% include 'inc/announcements.html.twig' %}
+    {% include 'inc/carousel.html.twig' %}
+    {% include 'inc/posts.html.twig' with {posts: posts, sections: sections} %}
+{% endblock %}
+
+{% block subsidebar %}
+<div class="row">
+    <div class="large-12 columns">
+    {% for banner in page.banners %}
+    <a href="{{ banner.url }}" target="_blank" alt="{{ banner.alt }}" class="th banner"><img src="{{ app.static_url.base(banner.src) }}" width="300px" style="margin-top: 5px" alt="Foo" ></a>
+    {% endfor %}
+    </div>
+</div>
+
+{% if page.quicklinks.items %}
+<div class="quicklinks">
+<h4 class="subheader">{{ page.quicklinks.header }}</h4>
+{% for item in page.quicklinks.items %}
+<p>{{ item.name }} <br><a href="{{ item.url }}" target="_blank" title="{{ item.name }}">{{ item.url }}</a></p>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

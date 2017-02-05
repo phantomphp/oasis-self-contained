@@ -1,0 +1,17 @@
+{% for post in posts %}
+    {% if post.type == 'post' %}
+    <h4><a href="{{ app.static_url.url('post') }}/{{ post.id }}/{{ post.title | lower | replace({' ': '-'}) }}">{{ post.title }}</a></h4>
+    <h5 class="subheader"><small><i class="fa fa-clock-o"></i> {{ (post.modified_on ?: post.created_on) | date('Y-m-d') }}{% for sectionId in post.sections %} <i class="fa fa-angle-right"></i> {{ sections[sectionId].name }}{% endfor %}</small></h5>
+    <p>{{ post.intro | raw }}</p>
+    {% elseif post.type == 'link' %}
+    <h4><a href="{{ post.body }}" target="_blank">{{ post.title }}</a> <i class="fa fa-external-link"></i></h4>
+    <h5 class="subheader"><small><i class="fa fa-clock-o"></i> {{ (post.modified_on ?: post.created_on) | date('Y-m-d') }}{% for sectionId in post.sections %} <i class="fa fa-angle-right"></i> {{ sections[sectionId].name }}{% endfor %}</small></h5>
+    <p>{{ post.intro | raw }}</p>
+
+    {% else %}
+    <!--h4>{{ post.title }}</h4-->
+    {{ post.body | raw }}
+    <h5 class="subheader"><small><i class="fa fa-clock-o"></i> {{ (post.modified_on ?: post.created_on) | date('Y-m-d') }}</small></h5>
+    {% endif %}
+    <hr >
+{% endfor %}

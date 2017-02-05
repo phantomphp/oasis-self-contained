@@ -1,0 +1,16 @@
+<div class="carousel">
+    {% for slide in page.slides %}
+        <div>{{ slide | raw }}</div>
+    {% endfor %}
+</div>
+<script src="{{ app.static_url.base('js/slick.min.js') }}"></script>
+<script>
+    $('.carousel').slick({
+      dots: true,
+      autoplay: true,
+      infinite: true,
+      speed: 2000,
+      fade: true,
+      cssEase: 'linear'
+    });
+</script>

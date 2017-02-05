@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+<h5 class="subheader"><small><i class="fa fa-clock-o"></i> {{ post.created_on | date('Y-m-d') }} {% for section in sections %} <i class="fa fa-angle-right"></i> {{ section.name }} {% endfor %}</small></h5>
+{{ post.body | raw  }}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<h1>{{ gallery.header }}</h1>
+{% for section in gallery.sections %}
+<h3 class="subheader">{{ section.name }}</h3>
+<ul class="clearing-thumbs" data-clearing>
+    {% for item in section.items %}
+    <li><a href="{{ app.static_url.base(item.url) }}" class="th"><img data-caption="{{ item.caption }}" src="{{ app.static_url.base(item.th) }}"></a></li>
+    {% endfor %}
+</ul>
+<hr>
+{% endfor %}
+{% endblock %}

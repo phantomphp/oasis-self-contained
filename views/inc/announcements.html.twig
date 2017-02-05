@@ -1,0 +1,6 @@
+{% for announcement in announcements %}
+<div data-alert class="alert-box radius {{ announcement.type }}">
+    <h4>{{ announcement.title }}</h4>
+    {{ announcement.body | raw }}
+</div>
+{% endfor %}

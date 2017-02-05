@@ -1,0 +1,13 @@
+composer.lock
+.DS_Store
+cache
+web/img/gallery
+web/img/banner
+migration/static/*/*.jpg
+migration/static/*/*.doc
+migration/static/*/*.pdf
+migration/static/*/*.zip
+build/package*
+build/config-templates
+build/config-template
+build/*.tar

@@ -1,0 +1,114 @@
+{% if topMenu is not defined %}
+{%
+    set topMenu = {
+        title: '',
+        left:[
+            {name: 'Main', url: "/"}
+        ]
+    }
+%}
+{% endif %}
+{% if sideMenu is not defined %}
+{%
+    set sideMenu = [{name: 'Main', url: "/"}]
+%}
+{% endif %}
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sherzod Odinaev">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Official site of the Embassy of Uzbekistan to the United States">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ app.static_url.base('css/foundation.css') }}" />
+    <script src="{{ app.static_url.base('js/vendor/modernizr.js') }}"></script>
+    <script src="{{ app.static_url.base('js/vendor/jquery.js') }}"></script>
+    <link href="{{ app.static_url.base('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ app.static_url.base('css/slick.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ app.static_url.base('css/slick-theme.css') }}"/>
+    <link rel="stylesheet" href="{{ app.static_url.base('css/styles.css') }}" />
+    <link rel="icon" href="{{ app.static_url.base('img/favicon.png') }}">
+    {% block scripts %}
+    {% endblock %}
+  </head>
+  <body>
+    <section id="top-section">
+        <div class="row">
+            <div class="large-3 small-12 columns centered">
+                <a href="{{ page.root }}"><img src="{{ app.static_url.base('img/coat-of-arms.svg') }}" width="120" height="120" class="bg-img"></a>
+            </div>
+            <div class="large-7 small-12 columns centered end">
+                <h1>{{ page.header | raw }}</h1>
+            </div>
+            <div class="large-2 columns">
+                {% if page.lang != 'uz' %}<a href="{{ app.static_url.base('uz') }}{{ langUrlAppend }}"><span class="label radius info">O'zbekcha</span></a>{% endif %}
+                {% if page.lang != 'ru' %}<a href="{{ app.static_url.base('ru') }}{{ langUrlAppend }}"><span class="label radius alert">Русский</span></a>{% endif %}
+                {% if page.lang != 'en' %}<a href="{{ app.static_url.base('') }}{{ langUrlAppend }}"><span class="label radius">English</span></a>{% endif %}
+            </div>
+        </div>
+    </section>
+    <section id="top-menu">
+        {% include 'inc/topbar.html.twig' with topMenu %}
+    </section>
+    {% block carousel %}
+    {% endblock %}
+    <div class="row" id="content">
+        <div class="large-4 medium-4 columns">
+            {% include 'inc/sidebar.html.twig' with sideMenu %}
+            {% block subsidebar %}
+            {% endblock %}
+        </div>
+
+        <div class="large-8 medium-8 columns">
+        {% block content %}
+            <h5>Content goes here</h5>
+        {% endblock %}
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="large-4 columns centered">
+                <h3><i class="fa fa-map-marker"></i></h3>
+                <span class="addr">{{ page.footer.address | raw }}</span>
+            </div>
+            <div class="large-2 columns centered">
+                <h3><i class="fa fa-phone"></i></h3>
+                <span class="addr">{{ page.footer.phone | raw }}</span>
+            </div>
+            <div class="large-2 columns centered">
+                <h3><i class="fa fa-fax"></i></h3>
+                <span class="addr">{{ page.footer.fax | raw }}</span>
+            </div>
+            <div class="large-4 columns centered">
+                <h3><i class="fa fa-envelope-o"></i></h3>
+                <span class="addr">{{ page.footer.email | raw }}</span>
+            </div>
+        </div>
+        <div class="row social-icons">
+            <div class="large-12 columns centered"><h3><a href="#" class="reg"><i class="fa fa-facebook-square"></i></a> <a href="#" class="reg"><i class="fa fa-twitter-square"></i></a> </h3></div>
+        </div>
+        <div class="row copyright">
+            <div class="large-12 columns centered">
+                 {{ page.footer.copyright | raw }} {{ 'now' | date('Y') }}.
+            </div>
+        </div>
+    </footer>
+    <script src="{{ app.static_url.base('js/foundation.min.js') }}"></script>
+    <script>
+        $(document).foundation();
+    </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79518534-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

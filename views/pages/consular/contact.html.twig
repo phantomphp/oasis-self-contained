@@ -1,0 +1,78 @@
+{% extends 'layout.html.twig' %}
+{% block scripts %}
+<script src='https://www.google.com/recaptcha/api.js?hl={{ page.lang }}'></script>
+{% endblock %}
+
+{% block content %}
+<h1>{{ page.contact.header }}</h1>
+
+{% if confirm %}
+{% include 'inc/alerts.html.twig' with {alert_type: 'success', alert_msg: page.contact.confirmation} %}
+{% else %}
+
+<div class="row">
+    <div class="large-12 columns">
+        {{ page.contact.intro }}
+    </div>
+</div>
+
+<hr>
+<form method="POST" action="#" onsubmit="return checkCaptcha()">
+    <div class="row">
+        <div class="large-8 columns end">
+            <label>{{ page.contact.your_name }}:
+                <input type="text" required="true" name="payload[fullname]" >
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-8 columns end">
+            <label>{{ page.contact.phone }}:
+                <input type="tel" name="payload[phone]" >
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-8 columns end">
+            <label>{{ page.contact.email }}:
+                <input type="email" required="true" name="payload[email]" >
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-8 columns end">
+            <label>{{ page.contact.subject }}:
+                <input type="text" required="true" name="payload[subject]" >
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <label>{{ page.contact.message }}:
+                <textarea cols="5" rows="10" name="payload[message]"></textarea>
+            </label>
+        </div>
+    </div>
+    <div class="g-recaptcha" data-size="normal" data-callback="captchaSuccess" data-sitekey="6Ld82xMTAAAAAIF4T4HNLDpbSXsRK7ORu3AcjmP7"></div>
+    <br>
+    <button class="radius submit" value="Submit">Submit</button>
+</form>
+
+<script>
+    var captchaString = '';
+    function captchaSuccess(data) {
+        captchaString = data;
+    }
+
+    function checkCaptcha()
+    {
+        if (captchaString == '') {
+            alert('{{ page.contact.captcha_alert | raw }}');
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endif %}
+
+{% endblock %}

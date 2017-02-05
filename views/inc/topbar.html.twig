@@ -1,0 +1,39 @@
+<div class="contain-to-grid sticky">
+<nav class="top-bar centered" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">{{ topMenu.title | raw }}</li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    {% if topMenu.left %}
+    <ul class="left">
+    {% for parentMenuItem in topMenu.left %}
+      <li class="{% if parentMenuItem.children is defined and parentMenuItem.children is not empty %}has-dropdown{% endif %}{% if parentMenuItem.id is defined and parentMenuItem.id in topMenu.actives %} active{% endif %}">
+        <a href="{% if parentMenuItem.url starts with 'http' %}{{ parentMenuItem.url }}{% else %}{{ app.static_url.url(parentMenuItem.url) }}{% endif %}">{{ parentMenuItem.name }}</a>
+      {% if parentMenuItem.children is defined and parentMenuItem.children is not empty %}
+        <ul class="dropdown">
+            {% for child in parentMenuItem.children %}
+            <li class="{% if child.children is defined and child.children is not empty %}has-dropdown{% endif %}{% if child.id is defined and child.id in topMenu.actives %} active{% endif %}">
+            <a href="{% if child.url starts with 'http' %}{{ child.url }}{% else %}{{ app.static_url.url(parentMenuItem.url) }}/{{ child.url }}{% endif %}">{{ child.name }}</a>
+                {% if child.children is defined and child.children is not empty %}
+                    <ul class="dropdown">
+                        {% for grandchild in child.children %}
+                        <li class="{% if grandchild.id is defined and grandchild.id in topMenu.actives %} active{% endif %}">
+                            <a href="{% if grandchild.url starts with 'http' %}{{ grandchild.url }}{% else %}{{ app.static_url.url(parentMenuItem.url) }}/{{ child.url }}/{{ grandchild.url }}{% endif %}">{{ grandchild.name }}</a>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+</nav>
+</div>

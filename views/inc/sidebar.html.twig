@@ -1,0 +1,20 @@
+<nav>
+    {% if sideMenu is defined %}
+    <ul class="side-nav sidebar">
+        {% for parentItem in sideMenu.items %}
+            <li class="heading{% if parentItem.id in sideMenu.actives %} active{% endif %}"><a href="{% if parentItem.url starts with 'http' %}{{ parentItem.url }}{% else %}{{ app.static_url.url(parentItem.url) }}{% endif %}">{{ parentItem.name }}</a></li>
+            {% if parentItem.children is defined and parentItem.id in sideMenu.actives %}
+            {% for child in parentItem.children %}
+                <li class="inner-side-nav{% if child.id in sideMenu.actives %} bold{% endif %}"><a href="{% if child.url starts with 'http' %}{{ child.url }}{% else %}{{ app.static_url.url(parentItem.url) }}/{{ child.url }}{% endif %}">{{ child.name }}</a></li>
+                {% if child.children is defined %}
+                {% for grandchild in child.children %}
+                <li class="inner-inner-side-nav{% if grandchild.id in sideMenu.actives %} bold{% endif %}"><a href="{% if grandchild.url starts with 'http' %}{{ grandchild.url }}{% else %}{{ app.static_url.url(parentItem.url) }}/{{ child.url }}/{{ grandchild.url }}{% endif %}">{{ grandchild.name }}</a></li>
+                {% endfor %}
+                {% endif %}
+
+            {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</nav>

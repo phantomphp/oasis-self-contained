@@ -1,0 +1,188 @@
+---
+env: dev
+
+static_url.options:
+  baseurl: ""
+  lang: ""
+
+i18n:
+  months: ['', Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+
+page:
+  root: /
+  lang: en
+  title: Embassy of Uzbekistan
+  header: Embassy of Uzbekistan <br> to the United States
+  slides:
+    samarkand: |
+      <a href"#" class="th"><img src="img/slide/samarkand.jpg" ></a>
+    silkroad: |
+      <a href"#" class="th"><img src="img/slide/silk_road.jpg" ></a>
+    fall: |
+      <a href"#" class="th"><img src="img/slide/fall.jpg" ></a>
+    zomin: |
+      <a href"#" class="th"><img src="img/slide/zomin.jpg" ></a>
+
+  error:
+    text: "Page not found"
+    return: "Back to homepage"
+
+  quicklinks:
+    header: Quick Links
+    items:
+      -
+        url: http://www.mfa.uz
+        name: Ministry of Foreign Affairs of the Republic of Uzbekistan
+      -
+        url: http://www.gov.uz
+        name: Portal of the State Authority of the Republic of Uzbekistan
+      -
+        url: http://www.press-service.uz
+        name: President's Press-office
+      -
+        url: http://www.airways.uz/
+        name: Uzbekistan Airways
+
+
+
+  banners:
+    welcome:
+      alt: Welcome to Uzbekistan
+      url: "http://welcomeuzbekistan.uz/en/"
+      src: "img/banner/welcome.png"
+    visa:
+      alt: Visa to Uzbekistan
+      url: "http://evisa.mfa.uz/"
+      src: "img/banner/e-visa.jpg"
+    cotton:
+      alt: Cotton Fair
+      url: "#"
+      src: "img/banner/cotton-fair-logo.jpg"
+    industrial:
+      alt: Industrial Fair
+      url: "#"
+      src: "img/banner/industrial-fair-logo.jpg"
+    touris:
+      alt: Tourism Fair
+      url: "#"
+      src: "img/banner/tourism-fair-logo.jpg"
+
+  footer:
+    address: "1746 Massachusetts Avenue NW<br>Washington, DC 20036-1903"
+    phone: "202.530.7291<br>202.887.5300"
+    fax: "202.293.6804"
+    email: |
+      <a href="#">info@uzbekistan.org</a>
+      <br>
+      <a href="#">uzbekconsul.org@gmail.com</a> (consular)
+    copyright: Embassy of Uzbekistan.
+
+  gallery:
+    photo:
+      header: Gallery
+      sections:
+        art:
+          name: Art
+          items:
+            -
+              url: img/gallery/photo/art/029.jpg
+              th: img/gallery/photo/art/029_thumb.jpg
+              caption: Lyagan
+            -
+              url: img/gallery/photo/art/032.jpg
+              th: img/gallery/photo/art/032_thumb.jpg
+              caption: Glazed ceramic dish
+            -
+              url: img/gallery/photo/art/Bobur.jpg
+              th: img/gallery/photo/art/Bobur_thumb.jpg
+              caption: Bobur
+            -
+              url: img/gallery/photo/art/045.jpg
+              th: img/gallery/photo/art/045_thumb.jpg
+              caption: Bobur
+
+        people:
+          name: People
+          items:
+            -
+              url: img/gallery/photo/people/1.jpg
+              th: img/gallery/photo/people/1_thumb.jpg
+              caption: Islom Abdugʻaniyevich Karimov, the President of Uzbekistan
+            -
+              url: img/gallery/photo/people/9.jpg
+              th: img/gallery/photo/people/9_thumb.jpg
+              caption: Uzbek woman
+            -
+              url: img/gallery/photo/people/14.jpg
+              th: img/gallery/photo/people/14_thumb.jpg
+              caption: Uzbek dancers
+            -
+              url: img/gallery/photo/people/010.jpg
+              th: img/gallery/photo/people/010_thumb.jpg
+              caption: Uzbek girl
+
+        tashkent:
+          name: Tashkent
+          items:
+            -
+              url: img/gallery/photo/tashkent/4.jpg
+              th: img/gallery/photo/tashkent/4_thumb.jpg
+              caption: Oliy Majlis
+            -
+              url: img/gallery/photo/tashkent/43.jpg
+              th: img/gallery/photo/tashkent/43_thumb.jpg
+              caption: Intercontinental hotel in Tashkent
+            -
+              url: img/gallery/photo/tashkent/44.jpg
+              th: img/gallery/photo/tashkent/44_thumb.jpg
+              caption: Tashkent at night
+            -
+              url: img/gallery/photo/tashkent/museum.jpg
+              th: img/gallery/photo/tashkent/museum_thumb.jpg
+              caption: Museum of Amir Temur
+
+    video:
+      header: Video Gallery
+      sections:
+        - url: https://www.youtube.com/embed/w6qh8KDOK1E
+          th: img/gallery/video/jasur.jpg
+          caption: Жасур
+        - url: https://www.youtube.com/embed/NzdyviQKuhE
+          th: img/gallery/video/odnoklassniki.jpg
+          caption: Одноклассники
+        - url: https://www.youtube.com/embed/LGagLUgkXUw
+          th: img/gallery/video/tubanlik.jpg
+          caption: Тубанлик
+
+    tourism:
+      header: Tourism Video Gallery
+      sections:
+        - url: https://www.youtube.com/embed/kkxySRChqic
+          th: img/gallery/tourism/welcome.jpg
+          caption: Welcome to Uzbekistan
+        - url: https://www.youtube.com/embed/L30UTw2ydEc
+          th: img/gallery/tourism/bukhara.jpg
+          caption: Bukhara
+        - url: https://www.youtube.com/embed/1HQFMuVzpwE
+          th: img/gallery/tourism/samarkand.jpg
+          caption: Samarkand
+        - url: https://www.youtube.com/embed/9CElCL-YYYc
+          th: img/gallery/tourism/khiva.jpg
+          caption: Khiva
+        - url: https://www.youtube.com/embed/lHEMeRiImyw
+          th: img/gallery/tourism/uzb-magic.jpg
+          caption: "Uzbekistan - Symbol of the magic East!"
+
+
+
+  contact:
+    intro: Intro text goes here
+    header: Contact Consular Section
+    your_name: Your name
+    phone: Phone
+    email: Email
+    subject: Subject
+    message: Message
+    captcha_alert: You need to check the "I\'m not a robot" box
+    confirmation: |
+      Thank you for contacting the Consular Section of the Embassy of the Republic of Uzbekistan to the USA. We will respond to you as soon as possible. Please be advised that pre-notification requests may take five to seven business days to process.

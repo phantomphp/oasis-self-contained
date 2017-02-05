@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block subsidebar %}
+{% if archives %}
+<h5><i class="fa fa-archive" aria-hidden="true"></i> {{ section.name }}</h5>
+<ul class="accordion" data-accordion>
+{% for archive_year, archive_months in archives %}
+  <li class="accordion-navigation">
+    <a href="#archive{{ archive_year }}">{{ archive_year }}</a>
+    <div id="archive{{ archive_year }}" class="content">
+        {% for archive_month, archive_items in archive_months %}
+            <a href="{{ app.static_url.url("archive/%s/%s/%s" | format(section.url, archive_year, archive_month)) }}"><span class="label radius">{{ app.i18n.months[archive_month] }}</span></a>
+        {% endfor %}
+    </div>
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}{# subsidebar #}
+
+{% block content %}
+{% if topSection or pageSection %}
+<h5 class="subheader">{% if topSection %}{{ topSection.name }} <i class="fa fa-angle-right"></i> {% endif %}{% if pageSection %}{{ pageSection.name }}{% endif %}</h5>
+{% endif %}
+
+{% include 'inc/announcements.html.twig' %}
+
+{% if section %}
+<h2>{{ section.name }}</h2>
+{% endif %}
+
+{{ include('inc/posts.html.twig', posts) }}
+
+{% endblock %}
