@@ -53,9 +53,9 @@ Last command will serve the site on port 80 in the VM. Now open a browser and na
 
 Not everything works in the site. Only following links work
 
-[Main page, http://localhost:8080](http://localhost:8080)
-[Press of Uzbekistan, http://localhost:8080/press-uzbekistan](http://localhost:8080/press-uzbekistan)
-[Consular section > Visa Information, http://localhost:8080/consular/visa/index](http://localhost:8080/consular/visa/index)
+- [Main page, http://localhost:8080](http://localhost:8080)
+- [Press of Uzbekistan, http://localhost:8080/press-uzbekistan](http://localhost:8080/press-uzbekistan)
+- [Consular section > Visa Information, http://localhost:8080/consular/visa/index](http://localhost:8080/consular/visa/index)
 
 These links demo most of the site's functionality.
 
